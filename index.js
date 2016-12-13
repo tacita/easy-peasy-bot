@@ -89,6 +89,11 @@ controller.hears('hello', 'direct_message', function (bot, message) {
     bot.reply(message, 'Hello!');
 });
 
+controller.hears(['hungry', 'feed me', 'food'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
+         bot.reply(message, 'ok! let\'s find something!');
+     });
+
+
 
 /**
  * AN example of what could be:
