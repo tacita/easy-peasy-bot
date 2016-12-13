@@ -81,12 +81,31 @@ controller.on('rtm_close', function (bot) {
  */
 // BEGIN EDITING HERE!
 
+var burgers = [
+    {
+        "location": "https://www.google.com/maps/dir/160+Varick+Street,+New+York,+NY/The+Kati+Roll+Company,+99+Macdougal+Street,+New+York,+NY+10012/@40.7282033,-74.0055599,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x89c259f494b711c5:0xc0df2dedc3840f1e!2m2!1d-74.0053737!2d40.7267926!1m5!1m1!1s0x89c2599227e6cc1b:0xb4d5e12eaca2e69!2m2!1d-74.001022!2d40.729614",
+        "restaurant": "The Kati Roll Company"
+    },
+    {
+        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
+        "restaurant": "Better Being Underground",
+        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
+    }
+];
+
+// Pick a number, 0 to the length of the restaurant list less one
+var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
+
 controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "I'm here!")
 });
 
 controller.hears('hello', 'direct_message', function (bot, message) {
     bot.reply(message, 'Hello!');
+});
+
+controller.hears('burger', 'direct_message', function (bot, message) {
+    bot.reply(message, burgers[pick]);
 });
 
 controller.hears(['hungry', 'feed me', 'food'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
