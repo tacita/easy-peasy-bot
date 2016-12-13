@@ -1,7 +1,7 @@
 {
-  "name": "easy-peasy-bot",
+  "name": "feed-me",
   "version": "1.0.0",
-  "description": "The awesomest bot evar.",
+  "description": "Get a lunch rec.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DEGoodmanWilson/easy-peasy-bot-app.git"
+    "url": "git+https://github.com/tacita/easy-peasy-bot"
   },
   "keywords": [
     "slack",
