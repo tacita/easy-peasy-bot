@@ -105,7 +105,7 @@ controller.hears('hello', 'direct_message', function (bot, message) {
 });
 
 controller.hears('burger', 'direct_message', function (bot, message) {
-    bot.reply(message, burgers[pick]);
+    bot.reply(message, burgers[0]['restaurant']);
 });
 
 controller.hears(['hungry', 'feed me', 'food'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
