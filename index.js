@@ -82,26 +82,79 @@ controller.on('rtm_close', function (bot) {
 
 var eateries = [
     {
-        "name": "some place",
+        "name": "another pizza place",
         "proximity": "closest",
-        "types": ['burger', 'salad'],
         "url": "www.burgers.com"
     },
     {
-        "name": "some other place",
+        "name": "pizzas-r-us",
         "proximity": "close",
-        "types": ['pizza', 'salad'],
         "url": "www.pizza.com"
     },
     {
-        "name": "another place",
+        "name": "pizza unite",
         "proximity": "far",
-        "types": ['dessert'],
         "url": "www.icecream.com"
+    },
+    {
+        "name": "some pizza place",
+        "proximity": "close",
+        "url": "www.pizza.com"
+    },
+    {
+        "name": "another burgers place",
+        "proximity": "closest",
+        "url": "www.burgers.com"
+    },
+    {
+        "name": "burgers-r-us",
+        "proximity": "close",
+        "url": "www.pizza.com"
+    },
+    {
+        "name": "burgers unite",
+        "proximity": "far",
+        "url": "www.icecream.com"
+    },
+    {
+        "name": "some burgers place",
+        "proximity": "close",
+        "url": "www.pizza.com"
+    },
+    {
+        "name": "another dessert place",
+        "proximity": "closest",
+        "url": "www.burgers.com"
+    },
+    {
+        "name": "dessert-r-us",
+        "proximity": "close",
+        "url": "www.pizza.com"
+    },
+    {
+        "name": "dessert unite",
+        "proximity": "far",
+        "url": "www.icecream.com"
+    },
+    {
+        "name": "some dessert place",
+        "proximity": "close",
+        "url": "www.pizza.com"
     }
-
 ];
 
+
+var eateryTypes = [
+    {
+        "pizza": ["some pizza place", "another pizza place", "pizzas-r-us", "pizza unite"]
+    },
+    {
+        "burger": ["some burger place", "another burger place", "burgers-r-us", "burger unite"]
+    },
+    {
+        "dessert": ["some desserts place", "another desserts place", "desserts-r-us", "desserts unite"]
+    }
+];
 
 
 controller.on('bot_channel_join', function (bot, message) {
@@ -114,19 +167,19 @@ controller.hears(['pizza', 'za'], 'direct_message', function (bot, message) {
     getRec(bot, message, 'pizza');
 });
 
-controller.hears('burger', 'direct_message', function (bot, message) {
-    // Pick a number, 0 to the length of the restaurant list less one
+controller.hears(['sweet', 'dessert'], 'direct_message', function (bot, message) {
+    getRec(bot, message, 'dessert');
+});
 
-    //bot.reply(message, burgers[pick]['restaurant']);
+controller.hears(['burger', 'burgers'], 'direct_message', function (bot, message) {
     getRec(bot, message, 'burger');
-
 });
 
 
 function getRec(bot, message, foodType) {
-    var pick = Math.floor( Math.random() * (eateries.length - 1 ) );
+    var pick = Math.floor( Math.random() * (eateryTypes[foodType] - 1 ) );
 
-    var msg = foodType + " " + eateries[pick]['name'];
+    var msg = eateries[pick]['name'];
 
     bot.reply(message, msg);   
 
