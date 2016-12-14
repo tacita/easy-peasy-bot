@@ -80,26 +80,26 @@ controller.on('rtm_close', function (bot) {
  * Core bot logic
  */
 
-var burgers = [
+var eateries = [
     {
-        "location": "https://www.google.com/maps/dir/160+Varick+Street,+New+York,+NY/The+Kati+Roll+Company,+99+Macdougal+Street,+New+York,+NY+10012/@40.7282033,-74.0055599,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x89c259f494b711c5:0xc0df2dedc3840f1e!2m2!1d-74.0053737!2d40.7267926!1m5!1m1!1s0x89c2599227e6cc1b:0xb4d5e12eaca2e69!2m2!1d-74.001022!2d40.729614",
-        "restaurant": "The Kati Roll Company"
+        "name": "some place",
+        "proximity": "closest",
+        "types": ['burger', 'salad'],
+        "url": "www.burgers.com"
     },
     {
-        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
-        "restaurant": "Better Being Underground",
-        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
+        "name": "some other place",
+        "proximity": "close",
+        "types": ['pizza', 'salad'],
+        "url": "www.pizza.com"
     },
     {
-        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
-        "restaurant": "something",
-        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
-    },
-    {
-        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
-        "restaurant": "something else",
-        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
+        "name": "another place",
+        "proximity": "far",
+        "types": ['dessert'],
+        "url": "www.icecream.com"
     }
+
 ];
 
 
@@ -126,7 +126,9 @@ controller.hears('burger', 'direct_message', function (bot, message) {
 function getRec(bot, message, foodType) {
     var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
 
-    bot.reply(message, foodType);   
+    var msg = foodType + " " + eateries[pick]['name'];
+
+    bot.reply(message, msg);   
 
     return;
 }
