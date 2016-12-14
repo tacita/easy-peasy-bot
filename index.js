@@ -90,6 +90,16 @@ var burgers = [
         "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
         "restaurant": "Better Being Underground",
         "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
+    },
+    {
+        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
+        "restaurant": "something",
+        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
+    },
+    {
+        "location": "https://www.google.com/maps/place/Better+Being+Underground/@40.730283,-74.005134,17z/data=!3m1!4b1!4m2!3m1!1s0x89c25992c2fb95f7:0x34aad58f90284bb7",
+        "restaurant": "something else",
+        "details": "Today's menu is <https://betterbeingunderground.wordpress.com/|here>. Better hurry, though. They start to run out of things after 1 p.m."
     }
 ];
 
