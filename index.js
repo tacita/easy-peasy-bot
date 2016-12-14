@@ -111,19 +111,19 @@ controller.on('bot_channel_join', function (bot, message) {
 //controller.hears(['hungry', 'feed me', 'food'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
 
 controller.hears(['pizza', 'za'], 'direct_message', function (bot, message) {
-    getRec('pizza');
+    getRec(bot, 'pizza');
 });
 
 controller.hears('burger', 'direct_message', function (bot, message) {
     // Pick a number, 0 to the length of the restaurant list less one
 
     //bot.reply(message, burgers[pick]['restaurant']);
-    getRec('burger');
+    getRec(bot, 'burger');
 
 });
 
 
-function getRec(foodType) {
+function getRec(bot, foodType) {
     var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
 
     bot.reply(message, foodType);   
