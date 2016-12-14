@@ -103,8 +103,7 @@ var burgers = [
     }
 ];
 
-// Pick a number, 0 to the length of the restaurant list less one
-var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
+
 
 controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "I'm here!")
@@ -115,6 +114,9 @@ controller.hears('hello', 'direct_message', function (bot, message) {
 });
 
 controller.hears('burger', 'direct_message', function (bot, message) {
+    // Pick a number, 0 to the length of the restaurant list less one
+    var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
+    
     bot.reply(message, burgers[pick]['restaurant']);
 });
 
