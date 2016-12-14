@@ -77,9 +77,8 @@ controller.on('rtm_close', function (bot) {
 
 
 /**
- * Core bot logic goes here!
+ * Core bot logic
  */
-// BEGIN EDITING HERE!
 
 var burgers = [
     {
@@ -116,8 +115,9 @@ controller.hears('hello', 'direct_message', function (bot, message) {
 controller.hears('burger', 'direct_message', function (bot, message) {
     // Pick a number, 0 to the length of the restaurant list less one
     var pick = Math.floor( Math.random() * (burgers.length - 1 ) );
-    
+
     bot.reply(message, burgers[pick]['restaurant']);
+    bot.reply(message, message)
 });
 
 controller.hears(['hungry', 'feed me', 'food'], ['direct_mention', 'mention', 'direct_message'], function(bot,message) {
