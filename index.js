@@ -177,13 +177,11 @@ controller.hears(['burger', 'burgers'], 'direct_message', function (bot, message
 
 
 function getRec(bot, message, foodType) {
-    var pick = Math.floor( Math.random() * (eateryTypes['pizza'] - 1 ) );
+    var pick = Math.floor( Math.random() * (eateryTypes[foodType].length - 1 ) );
 
-    //var eatery = _.pick(object, ['a', 'c']);
+    var msg = eateries[pick]['name'];
 
-    // var msg = eateries[pick]['name'];
-
-    bot.reply(message, 'cat');   
+    bot.reply(message, msg);   
 
     return;
 }
